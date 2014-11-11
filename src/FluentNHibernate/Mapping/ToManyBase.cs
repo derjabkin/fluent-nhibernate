@@ -212,7 +212,7 @@ namespace FluentNHibernate.Mapping
             {
                 var part = new CollectionIdPart();
                 mapping(part);
-                collectionIdMapping = part.Mapping;
+                collectionIdMapping = part.CreateMapping();
             }
 
             return (T)this;

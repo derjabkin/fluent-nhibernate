@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using FluentNHibernate.Utils;
+using FluentNHibernate.MappingModel.Identity;
 
 namespace FluentNHibernate.MappingModel.Collections
 {
@@ -14,9 +15,9 @@ namespace FluentNHibernate.MappingModel.Collections
         private readonly AttributeStore attributes;
 
 
-        public CollectionIdMapping(AttributeStore attributes) 
+        public CollectionIdMapping(AttributeStore attributes)
         {
-            this.attributes = attributes;   
+            this.attributes = attributes;
         }
 
 
@@ -25,9 +26,17 @@ namespace FluentNHibernate.MappingModel.Collections
             get { return attributes.GetOrDefault<string>("ColumnName"); }
         }
 
+        public TypeReference Type
+        {
+            get { return attributes.GetOrDefault<TypeReference>("Type"); }
+        }
+
         public override void AcceptVisitor(IMappingModelVisitor visitor)
         {
             visitor.ProcessCollectionId(this);
+            
+            if (Generator != null)
+                visitor.Visit(Generator);
         }
 
         public override bool IsSpecified(string attribute)
@@ -43,6 +52,11 @@ namespace FluentNHibernate.MappingModel.Collections
         public void Set<T>(Expression<Func<CollectionIdMapping, T>> expression, int layer, T value)
         {
             Set(expression.ToMember().Name, layer, value);
+        }
+
+        public GeneratorMapping Generator
+        {
+            get { return attributes.GetOrDefault<GeneratorMapping>("Generator"); }
         }
 
     }
