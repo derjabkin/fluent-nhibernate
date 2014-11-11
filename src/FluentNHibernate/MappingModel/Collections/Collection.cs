@@ -6,6 +6,7 @@
         Bag,
         Map,
         List,
-        Set
+        Set,
+        IdBag
     }
 }

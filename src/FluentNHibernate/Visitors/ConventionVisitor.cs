@@ -28,6 +28,7 @@ namespace FluentNHibernate.Visitors
                 { Collection.Map, ProcessMap },
                 { Collection.List, ProcessList },
                 { Collection.Set, ProcessSet },
+                { Collection.IdBag, ProcessIdBag }
             };
             this.finder = finder;
         }
@@ -117,6 +118,14 @@ namespace FluentNHibernate.Visitors
         }
 
         void ProcessBag(CollectionMapping mapping)
+        {
+            var conventions = finder.Find<IBagConvention>();
+
+            Apply<IBagInspector, IBagInstance>(conventions,
+                new CollectionInstance(mapping));
+        }
+
+        void ProcessIdBag(CollectionMapping mapping)
         {
             var conventions = finder.Find<IBagConvention>();
 

@@ -23,6 +23,8 @@ namespace FluentNHibernate.Mapping
 
         protected readonly AttributeStore collectionAttributes = new AttributeStore();
         protected readonly KeyMapping keyMapping = new KeyMapping();
+        CollectionIdMapping collectionIdMapping;
+
         protected readonly AttributeStore relationshipAttributes = new AttributeStore();
         readonly IList<IFilterMappingProvider> filters = new List<IFilterMappingProvider>();
         Func<AttributeStore, CollectionMapping> collectionBuilder;
@@ -49,14 +51,14 @@ namespace FluentNHibernate.Mapping
             relationshipAttributes.Set("Class", Layer.Defaults, new TypeReference(typeof(TChild)));
         }
 
-		/// <summary>
-		/// Return the type of the owning entity
-		/// </summary>
-		/// <returns>Type</returns>
-    	public Type EntityType
-    	{
-			get { return entity; }
-    	}
+        /// <summary>
+        /// Return the type of the owning entity
+        /// </summary>
+        /// <returns>Type</returns>
+        public Type EntityType
+        {
+            get { return entity; }
+        }
 
         /// <summary>
         /// This method is used to set a different key column in this table to be used for joins.
@@ -194,6 +196,23 @@ namespace FluentNHibernate.Mapping
                 var columnMapping = new ColumnMapping();
                 columnMapping.Set(x => x.Name, Layer.Defaults, "Index");
                 indexMapping.AddColumn(Layer.Defaults, columnMapping);
+            }
+
+            return (T)this;
+        }
+        /// <summary>
+        /// Use an idbag
+        /// </summary>
+        /// <param name="mapping">Index mapping</param>
+        public T AsIdBag(Action<CollectionIdPart> mapping)
+        {
+            collectionBuilder = attrs => CollectionMapping.IdBag(attrs);
+
+            if (mapping != null)
+            {
+                var part = new CollectionIdPart();
+                mapping(part);
+                collectionIdMapping = part.Mapping;
             }
 
             return (T)this;
@@ -728,6 +747,10 @@ namespace FluentNHibernate.Mapping
             mapping.Member = member;
             mapping.Set(x => x.Name, Layer.Defaults, GetDefaultName());
             mapping.Set(x => x.ChildType, Layer.Defaults, typeof(TChild));
+            
+            if (collectionIdMapping != null)
+                mapping.Set(x => x.CollectionId, Layer.Defaults, collectionIdMapping);
+
             mapping.Set(x => x.Key, Layer.Defaults, keyMapping);
             mapping.Set(x => x.Relationship, Layer.Defaults, GetRelationship());
             mapping.Key.ContainingEntityType = entity;

@@ -383,10 +383,15 @@ namespace FluentNHibernate.Testing.MappingModel.Output
                 .Element("bag").Exists();
         }
 
-        [Test, Ignore]
+        [Test]
         public void ShouldWriteIdBag()
         {
-            Assert.Fail();
+            var mapping = new ClassMapping();
+
+            mapping.AddCollection(CollectionMapping.IdBag());
+
+            writer.VerifyXml(mapping)
+                .Element("idbag").Exists();
         }
 
         [Test, Ignore]

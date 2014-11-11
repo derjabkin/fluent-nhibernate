@@ -15,7 +15,7 @@ namespace FluentNHibernate.MappingModel.Collections
         public Type ContainingEntityType { get; set; }
         public Member Member { get; set; }
 
-        CollectionMapping(AttributeStore attributes)
+        protected CollectionMapping(AttributeStore attributes)
         {
             Collection = Collection.Bag;
             this.attributes = attributes;
@@ -34,6 +34,9 @@ namespace FluentNHibernate.MappingModel.Collections
         public override void AcceptVisitor(IMappingModelVisitor visitor)
         {
             visitor.ProcessCollection(this);
+
+            if (CollectionId != null)
+                visitor.Visit(CollectionId);
 
             if (Key != null)
                 visitor.Visit(Key);
@@ -64,6 +67,10 @@ namespace FluentNHibernate.MappingModel.Collections
 
         public IRelationship OtherSide { get; set; }
 
+        public CollectionIdMapping CollectionId
+        {
+            get { return attributes.GetOrDefault<CollectionIdMapping>("CollectionId"); }
+        }
         public KeyMapping Key
         {
             get { return attributes.GetOrDefault<KeyMapping>("Key"); }
@@ -254,6 +261,16 @@ namespace FluentNHibernate.MappingModel.Collections
         public static CollectionMapping Bag(AttributeStore underlyingStore)
         {
             return For(Collection.Bag, underlyingStore);
+        }
+
+        public static CollectionMapping IdBag()
+        {
+            return IdBag(new AttributeStore());
+        }
+
+        public static CollectionMapping IdBag(AttributeStore underlyingStore)
+        {
+            return For(Collection.IdBag, underlyingStore);
         }
 
         public static CollectionMapping List()

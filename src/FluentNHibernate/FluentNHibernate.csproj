@@ -415,6 +415,7 @@
     <Compile Include="Conventions\ManyToManyTableNameConvention.cs" />
     <Compile Include="Conventions\ObjectExtensionsForConventions.cs" />
     <Compile Include="Conventions\ProxyConvention.cs" />
+    <Compile Include="MappingModel\Collections\CollectionIdMapping.cs" />
     <Compile Include="MappingModel\Collections\LayeredColumns.cs" />
     <Compile Include="MappingModel\Layer.cs" />
     <Compile Include="MappingModel\ClassBased\ComponentType.cs" />
@@ -431,9 +432,12 @@
     <Compile Include="MappingModel\NaturalIdMapping.cs" />
     <Compile Include="MappingModel\Output\CollectionAttributeWriter.cs" />
     <Compile Include="MappingModel\Output\XmlBagWriter.cs" />
+    <Compile Include="MappingModel\Output\XmlCollectionIdWriter.cs" />
+    <Compile Include="MappingModel\Output\XmlIdBagWriter.cs" />
     <Compile Include="MappingModel\Output\XmlNaturalIdWriter.cs" />
     <Compile Include="MappingModel\TuplizerMode.cs" />
     <Compile Include="Mapping\Access.cs" />
+    <Compile Include="Mapping\CollectionIdPart.cs" />
     <Compile Include="Mapping\CollectionTypeResolver.cs" />
     <Compile Include="Mapping\ListIndexPart.cs" />
     <Compile Include="Mapping\Laziness.cs" />

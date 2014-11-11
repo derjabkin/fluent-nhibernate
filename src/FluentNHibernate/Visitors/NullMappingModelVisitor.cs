@@ -10,7 +10,7 @@ namespace FluentNHibernate.Visitors
     {
         public virtual void ProcessId(IdMapping idMapping)
         {
-
+            
         }
 
         public virtual void ProcessNaturalId(NaturalIdMapping naturalIdMapping)
@@ -20,7 +20,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessCache(CacheMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessCompositeId(CompositeIdMapping idMapping)
@@ -35,7 +35,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessImport(ImportMapping importMapping)
         {
-            
+
         }
 
         public virtual void ProcessHibernateMapping(HibernateMapping hibernateMapping)
@@ -75,7 +75,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessManyToMany(ManyToManyMapping manyToManyMapping)
         {
-            
+
         }
 
         public virtual void ProcessSubclass(SubclassMapping subclassMapping)
@@ -85,17 +85,17 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessDiscriminator(DiscriminatorMapping discriminatorMapping)
         {
-            
+
         }
 
         public virtual void ProcessComponent(ComponentMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessComponent(ReferenceComponentMapping componentMapping)
         {
-            
+
         }
 
         public virtual void ProcessJoin(JoinMapping joinMapping)
@@ -105,42 +105,42 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessCompositeElement(CompositeElementMapping compositeElementMapping)
         {
-            
+
         }
 
         public virtual void ProcessVersion(VersionMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessOneToOne(OneToOneMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessAny(AnyMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessMetaValue(MetaValueMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessKeyProperty(KeyPropertyMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessKeyManyToOne(KeyManyToOneMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessElement(ElementMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessFilter(FilterMapping mapping)
@@ -155,7 +155,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessStoredProcedure(StoredProcedureMapping mapping)
         {
-            
+
         }
 
         public virtual void ProcessIndex(IIndexMapping indexMapping)
@@ -165,7 +165,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessIndex(IndexMapping indexMapping)
         {
-            
+
         }
 
         public virtual void ProcessIndex(IndexManyToManyMapping indexMapping)
@@ -175,27 +175,27 @@ namespace FluentNHibernate.Visitors
 
         public virtual void ProcessParent(ParentMapping parentMapping)
         {
-            
+
         }
 
         public virtual void ProcessTuplizer(TuplizerMapping tuplizerMapping)
         {
-            
+
         }
 
         public virtual void ProcessCollection(MappingModel.Collections.CollectionMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(IEnumerable<HibernateMapping> mappings)
         {
-            
+
         }
 
         public virtual void Visit(IdMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(NaturalIdMapping naturalIdMapping)
@@ -210,7 +210,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void Visit(CacheMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(ImportMapping importMapping)
@@ -260,36 +260,36 @@ namespace FluentNHibernate.Visitors
 
         public virtual void Visit(SubclassMapping subclassMapping)
         {
-            
+
         }
 
         public virtual void Visit(DiscriminatorMapping discriminatorMapping)
         {
-            
+
         }
 
         public virtual void Visit(IComponentMapping componentMapping)
         {
-            
+
         }
 
         public virtual void Visit(IIndexMapping indexMapping)
         {
-            
+
         }
         public virtual void Visit(ParentMapping parentMapping)
         {
-            
+
         }
 
         public virtual void Visit(JoinMapping joinMapping)
         {
-            
+
         }
 
         public virtual void Visit(CompositeElementMapping compositeElementMapping)
         {
-            
+
         }
 
         public virtual void Visit(VersionMapping versionMapping)
@@ -304,7 +304,7 @@ namespace FluentNHibernate.Visitors
 
         public virtual void Visit(OneToManyMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(ManyToManyMapping mapping)
@@ -319,22 +319,22 @@ namespace FluentNHibernate.Visitors
 
         public virtual void Visit(MetaValueMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(KeyPropertyMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(KeyManyToOneMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(ElementMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(FilterMapping mapping)
@@ -349,12 +349,21 @@ namespace FluentNHibernate.Visitors
 
         public virtual void Visit(StoredProcedureMapping mapping)
         {
-            
+
         }
 
         public virtual void Visit(TuplizerMapping mapping)
         {
-            
+
+        }
+
+
+        public virtual void ProcessCollectionId(CollectionIdMapping collectionIdMapping)
+        {
+        }
+
+        public virtual void Visit(CollectionIdMapping mapping)
+        {
         }
     }
 }

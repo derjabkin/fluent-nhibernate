@@ -108,6 +108,8 @@ namespace FluentNHibernate.MappingModel.Output
 
             RegisterWriter<TuplizerMapping>(c =>
                 new XmlTuplizerWriter());
+
+            RegisterWriter<CollectionIdMapping>(c => new XmlCollectionIdWriter());
         }
 
         private void RegisterIdWriters()

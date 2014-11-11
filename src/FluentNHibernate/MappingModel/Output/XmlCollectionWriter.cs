@@ -47,6 +47,9 @@ namespace FluentNHibernate.MappingModel.Output
                 case Collection.Set:
                     writer = new XmlSetWriter(serviceLocator);
                     break;
+                case Collection.IdBag:
+                    writer = new XmlIdBagWriter(serviceLocator);
+                    break;
                 default:
                     throw new InvalidOperationException("Unrecognised collection type " + mapping.Collection);
             }

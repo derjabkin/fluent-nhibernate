@@ -11,4 +11,9 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Sergey\DotNet\ForeignCode\fluent-nhibernate\src\packages\NUnit.2.5.7.10213\Tools\nunit.exe</StartProgram>
+    <StartArguments>/run FluentNHibernate.Testing.dll</StartArguments>
+  </PropertyGroup>
 </Project>

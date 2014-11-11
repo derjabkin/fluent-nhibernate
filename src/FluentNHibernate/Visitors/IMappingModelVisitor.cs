@@ -45,7 +45,8 @@ namespace FluentNHibernate.Visitors
         void ProcessStoredProcedure(StoredProcedureMapping mapping);
         void ProcessTuplizer(TuplizerMapping mapping);
         void ProcessCollection(MappingModel.Collections.CollectionMapping mapping);
-
+        void ProcessCollectionId(CollectionIdMapping collectionIdMapping);
+  
         /// <summary>
         /// This bad boy is the entry point to the visitor
         /// </summary>
@@ -85,5 +86,6 @@ namespace FluentNHibernate.Visitors
         void Visit(FilterDefinitionMapping mapping);
         void Visit(StoredProcedureMapping mapping);
         void Visit(TuplizerMapping mapping);
-    }
+        void Visit(CollectionIdMapping mapping);
+        }
 }
